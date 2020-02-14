@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class playmanager : MonoBehaviour
+{
+    public void CambiarEscena(string nombre) {
+        print("Estas cambiando a la escena" + nombre);
+        SceneManager.LoadScene(nombre);
+    }
+    public void Salir()
+    {
+        print("Saliendo del juego");
+        Application.Quit();
+    }
+    //private void Start()
+    //{ //función para que el cursor desaparezca
+    //    Cursor.visible = false;
+    //}
+}
