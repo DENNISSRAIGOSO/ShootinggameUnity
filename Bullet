@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public class Bullet : MonoBehaviour
+{
+    public GameObject hitEffect;
+    public GameObject hitEffect2;
+    public GameObject otra;
+        
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        GameObject other = collision.gameObject;
+        
+        if (other.tag == "Enemy")
+        {
+            
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 5f);
+            print("Va a cambiar de colorrrrr");
+            other.GetComponent<MeshRenderer>().material.color *= 1.2f;
+        }
+        if (other.tag == "Box")
+        {
+                
+                print("Aquí tenemosotro efecto compañerossss");
+                GameObject effect2 = Instantiate(hitEffect2, transform.position, Quaternion.identity);
+                Destroy(effect2, 5f);
+                Destroy(collision.gameObject);
+                
+            }
+
+        }
+}
+   
